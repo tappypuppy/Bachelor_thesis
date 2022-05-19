@@ -1,0 +1,60 @@
+%%
+%%  platex2e用 (TeX Live 2019 で使えます)
+%%
+% このファイルは、筑波大学工学システム学類の卒業研究論文本体の
+% 例を作成するために作ったものです。このファイルを書き換えて、
+% この例と同じような書式の卒業論文本体をLaTeXを使って作成する
+% ことができます。
+%%
+%
+% platexを使う場合
+\documentclass[twoside,twocolumn,a4j,dvipdfmx]{jarticle}
+%% 2020年度のスタイルファイルです。
+\usepackage{esys-thesis}
+% 図のファイルを貼り付けるためのパッケージ。
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{top=35truemm,bottom=30truemm,left=35truemm,right=20truemm}
+\usepackage{latexsym}
+\usepackage{amsmath}
+%
+%%%%%% ここから論文内容 %%%%%%
+%
+% 次の行には、000000の代わりに自分の学籍番号を、KOUSHISUの
+% 代わりに大文字のローマ字で自分の名字を例にならって書いて
+% 下さい。
+%
+\pagestyle{myheadings}
+%\markboth{\it 000000 KOSHISU}{\it 000000 KOUSHISU}
+\esysid{201811134 TAKAHASHI}
+%
+%
+% 題目を書いて下さい
+%
+\title{{\Large Julia言語を用いた常微分方程式の周期解の精度保証付き数値計算} \\ {\large INSTRUCTIONS FOR TYPING THE GRADUATION THESIS}}
+%
+% 著者名、著者名のローマ字表記、指導教員名を例にならって書い
+% て下さい
+%
+\author{{\Large 高橋 和暉 } \\ KAZUKI TAKAHASHI \\ (指導教員  高安)}
+
+%
+% 卒業論文の概要を書いて下さい
+%
+\eabstract{%
+Here you must write the abstract of your thesis. If you write the text in Japanese, you must write the abstract in English. If the text is written in English, the abstract must be written in Japanese. Abstract is not Introduction. In abstract, please briefly write what is studied, done, and concluded. It is not necessary to write why your study is started, or how your study is important.
+
+Typical length of the abstract is about 150 -- 300 words, but not limited.%
+}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{headings}
+
+\chapter{はじめに}
+
+
+
+
+\end{document}

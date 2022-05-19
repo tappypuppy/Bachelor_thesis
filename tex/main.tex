@@ -1,0 +1,104 @@
+
+\documentclass[twoside,twocolumn,a4j,dvipdfmx]{jarticle}
+
+\input{./00_Settings/Packages.tex}
+\input{./00_Settings/macro.tex}
+%
+%%%%%% ここから論文内容 %%%%%%
+%
+% 次の行には、000000の代わりに自分の学籍番号を、KOUSHISUの
+% 代わりに大文字のローマ字で自分の名字を例にならって書いて
+% 下さい。
+%
+\pagestyle{myheadings}
+%\markboth{\it 000000 KOSHISU}{\it 000000 KOUSHISU}
+\esysid{201811134 TAKAHASHI}
+%
+%
+% 題目を書いて下さい
+%
+\title{{\Large Julia言語を用いた常微分方程式の周期解の精度保証付き数値計算} \\ {\large Rigorous numerics for periodic solutions of ODEs using Julia language}}
+%
+% 著者名、著者名のローマ字表記、指導教員名を例にならって書い
+% て下さい
+%
+\author{{\Large 高橋 和暉 } \\ KAZUKI TAKAHASHI \\ (指導教員  高安 亮紀)}
+
+%
+% 卒業論文の概要を書いて下さい
+%
+\eabstract{On the one hand, numerical computation is an efficient technique for solving mathematical problems including various differential equations numerically. On the other hand, one cannot avoid errors in numerical computing. Rigorous numerics is a method to evaluate the error of numerical computations rigorously and to derive mathematically rigorous results. It should be an efficient tool for controlling risks in numerical computations. In this study, using the Julia language, we implement a method of rigorous numerics for periodic solutions of the van der Pol equation. In particular, we approximate the periodic solution by a Fourier series and numerically validate the hypothesis of the Newton-Kantorovich type theorem by considering a zero-finding problem for the Fourier coefficients.
+}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\vspace*{10mm}
+{\large　令和三年度 筑波大学工学システム学類卒業研究論文} \\
+\vspace*{30mm}
+{\Large Julia言語を用いた常微分方程式の周期解の精度保証付き数値計算} 
+\vspace{100mm} \\
+\begin{tabular}{rl}
+{\Large 学籍番号} & {\Large 201811134} \\
+\addlinespace[10mm]
+{\Large 氏名} & {\Large 高橋 和暉} \\
+\addlinespace[10mm]
+{\Large 指導教員} & {\Large 高安 亮紀}
+\end{tabular} 
+\end{center}
+\end{titlepage}
+
+\clearpage
+
+\maketitle
+\thispagestyle{headings}
+
+\section{はじめに}
+\Introduction
+
+\section{Fourier級数}
+\Fourierseries
+
+\section{離散畳み込み(Discrete Convolution)}
+\Convolution
+
+\section{周期解の精度保証付き数値計算の諸理論}
+\Theories
+
+\section{van der Pol方程式の周期解の数値計算}
+\ODE
+
+\section{van der Pol方程式の周期解の精度保証}
+\VerifyPO
+
+\section{おわりに}
+\Conclusion
+
+\section{謝辞}
+指導教員の高安亮紀先生から大変丁寧なご指導を賜りました。厚く感謝を申し上げます。また、同研究室の遠藤靖典先生からも大変丁寧なご指導を賜りました。厚く感謝を申し上げます。さらに、同研究室の皆様からも大変多くのご助言を頂きました、厚く感謝を申し上げます。
+
+\begin{thebibliography}{99}
+\bibitem{seidohoshou}
+大石進一, 『精度保証付き数値計算の基礎』, コロナ社, 2018.
+
+\bibitem{convolution}
+Jean-Phileppe Lessard. Computing discrete convolutions with verified accuracy via Banach algebras and the FFT. Applications of Mathematics, 63(3):219–235, 2018.
+
+\bibitem{radiipolynomial}
+Jean-Philippe Lessard, Jason Mireles James, Julian Ransford, Automatic differentiation for Fourier series and the radii polynomial approach. Physica D  Nonlinear Phenomena 334(299), 2016.
+
+\bibitem{JPLessard}
+Jean-Philippe Lessard. Continuation of solutions and studying delay differential equations via rigorous numerics. In Jan Bouwe van den Berg and Jean-Philippe Lessard, editors, Rigorous numerics in dynamics, pages 81-122, Providence, Rhode Island, 2018. American Mathematical Society.
+\bibitem{FFT}
+井藤佳奈子, 高安亮紀, Juliaで精度保証付き高速フーリエ変換, \url{https://www.risk.tsukuba.ac.jp/~takitoshi/tutorial/verifyfft.html}, 2021.
+
+\bibitem{DEjl}
+DifferentialEquations.jl: Scientific Machine Learning (SciML) Enabled Simulation and Estimation, \url{https://diffeq.sciml.ai/stable/}, 2021.
+
+\bibitem{radiipolynomial_interval}
+大谷俊輔, 高安亮紀，Juliaで非線型方程式の解の精度保証付き数値計算, \url{https://www.risk.tsukuba.ac.jp/~takitoshi/tutorial/verifynlss.html}, 2020.
+
+\end{thebibliography}
+
+\end{document}

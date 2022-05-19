@@ -1,0 +1,27 @@
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2022.1.4)  31 JAN 2022 12:35
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**introduction.tex
+(./introduction.tex
+pLaTeX2e <2021-11-15> (based on LaTeX2e <2021-11-15> patch level 1)
+L3 programming layer <2021-11-22>
+! Undefined control sequence.
+l.4 \section
+            {はじめに}
+? 
+! Emergency stop.
+l.4 \section
+            {はじめに}
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 17 strings out of 478816
+ 349 string characters out of 5863668
+ 302245 words of memory out of 5000000
+ 18470 multiletter control sequences out of 15000+600000
+ 407301 words of font info for 44 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 15i,0n,23p,108b,18s stack positions out of 5000i,500n,10000p,200000b,80000s
+No pages of output.

@@ -1,0 +1,202 @@
+%!TEX root = ../main.tex
+
+%\documentclass[twoside,twocolumn,a4j,dvipdfmx]{jarticle}
+%\usepackage{amsmath,amssymb}
+%\usepackage[dvipdfmx]{graphicx}
+%\newcommand{\im}{\mathrm{i}}
+%\newcommand{\bx}{\mathrm x}
+%\newcommand{\R}{\mathbb{R}}
+%\newtheorem{thm}{定理}[section]
+%\newtheorem{df}[thm]{定義}
+%\newtheorem{lem}{補助定理}[section]
+%\newtheorem{prop}{補題}[section]
+
+%\begin{document}
+
+\subsection{ノルム空間、Banach空間、距離空間}
+
+\begin{df}
+線形空間(ベクトル空間)とは和(と差)、スカラー倍が定義される集合、特に $X$ をある集合として、
+\begin{itemize}
+\item 和の演算が可換 : $(x+y)+z = x+(y+z), \forall x,y,z \in X$
+\item ゼロ元が存在 : $\exists0 \in X \mbox{ such that } 0 + v = v$ 
+\end{itemize}
+である。
+\end{df}
+
+\begin{df}
+線形空間 $X$ の各元に実数値を対応させる関数 $\|\cdot\| : X \rightarrow \R$ が定義され、\textbf{ノルムの公理}
+\begin{enumerate}
+\item $\|x\| \ge 0 \mbox{、かつ} \|x\| = 0 \Leftrightarrow x = 0,x \in X$
+\item $\|cx\| = |c|\|x\|, c \in \R, x \in X$
+\item $\|x+y\| \leq \|x\| + \|y\|, x,y \in X$
+\end{enumerate}
+を満たすとき、 $X$ を\textbf{ノルム空間} という。
+\end{df}
+
+ノルム空間が\textbf{完備}とは、 $X$ の任意のCauchy列 $\{ x_n \}$ が $X$ のある元 $x_*$ に収束する, i.e, $\exists x_* \in X \mbox{ such that } x_n \Rightarrow x_* \mbox{ as } n \Rightarrow \infty \Leftrightarrow \|x_n - x_* \| \Rightarrow 0  \mbox{ as } n \Rightarrow \infty$
+
+\begin{df}
+完備なノルム空間を\textbf{Banach空間}という
+\end{df}
+
+\begin{df}
+$X$ をノルム空間とし、 $x,y \in X$ に対して実数値を対応させる関数 $d(\cdot, \cdot) :X \times X \to \R$ が定義され、条件
+\begin{enumerate}
+\item $d(x,y) \ge 0$, かつ $d(x,y) = 0 \Leftrightarrow x = y, \quad x,y \in X$
+\item $d(x,y) = d(y,x), \quad x,y \in X$
+\item $d(x,y) \leq d(x,z) + d(z,y) \quad x,y,z \in X$
+\end{enumerate}
+を満たすとき、 $d$ を距離という、距離の備わっている集合を\textbf{距離空間}という。
+\end{df}
+
+\subsection{Banachの不動点定理(縮小写像の原理)}
+\begin{df}
+$(X,d)$ : 距離空間, $T:X \to X$ が $X$ 上の縮小写像である必要十分条件は、$d(T(x),T(y)) \leq kd(x,y), \quad x,y \in X$ となるような $k \in [0,1) $ が存在することである。
+\end{df}
+
+\begin{thm}[Banachの不動点定理]
+$(X,d)$ : 完備距離空間とする。写像 $T: X \to X$ が縮小写像ならば、 $T$ は $X$ においてただ一つの不動点 $x_* = T(x_*)$ をもつ。
+\end{thm}
+
+\subsection{簡易ニュートン写像}
+
+\begin{df}　 $X$, $Y$ をBanach空間とし, 写像 $F:X\rightarrow Y$ に対して, 
+$$
+F(\bx)=0 \quad \text{in}~Y
+$$
+という（非線形）作用素方程式を考える。
+このとき写像 $T:X\rightarrow X$ を
+$$
+T(\bx):=\bx-AF(\bx)
+$$
+と定義したとき, これを\textbf{簡易ニュートン写像}という。ここで,  $A:Y\rightarrow X$ はある全単射な線形作用素である。このとき, $\bar{\bx}$を $F(\bar{\bx}) \approx 0$ の近似解とし, $\bar{x}$ の近傍を
+$$
+\begin{array}{ll}
+B(\bar{\bx}, r):=\{\bx \in X:\|\bx-\bar{\bx}\|<r\} & \text { (開球) } \\
+\overline{B(\bar{\bx}, r)}:=\{\bx \in X:\|\bx-\bar{\bx}\| \leq r\} & \text { (閉球) }
+\end{array}
+$$
+で定義する。このときもし, $B(\bar{\bx}, r)$ 上で写像 $T$ が縮小写像となれば, Banachの不動点定理から $F(\bar{\bx})=0$をみたす解 $\tilde{\bx} \in B(\bar{\bx}, r)$がただ1つ存在することになる。
+
+このように解の存在を仮定せずに近似解近傍での収束をいう定理を Newton 法の半局所的収束定理という。
+\end{df}
+
+\subsection{有界線形作用素}
+\begin{df}
+Banach空間 $X$ から $Y$への有界線形作用素全体を
+\begin{align*}
+ \mathcal{L}(X, Y):=\{&E:X\rightarrow Y:E\text{が線形},\\
+&\|E\|_{ \mathcal{L}(X, Y)}<\infty \}
+\end{align*}
+とする。ここで $\|\cdot\|_{ \mathcal{L}(X, Y)}$ は作用素ノルム
+$$
+\|E\|_{\mathcal{L}(X, Y)}:=\sup _{\|\bx\|_{X}=1}\|E \bx\|_{Y}
+$$
+
+を表す。そして空間 $\left\langle\mathcal{L}(X, Y),\|\cdot\|_{\mathcal{L}(X, Y)}\right\rangle$ はBanach空間となる。
+\end{df}
+
+\subsection{Fréchet微分}
+\begin{df}
+作用素 $F:X\rightarrow Y$が $\bx_0 \in X$ でFréchet微分可能であるとは, ある有界線形作用素 $E:X \rightarrow Y$ が存在して, 
+$$
+\lim _{\|h\|_{X} \rightarrow 0} \frac{\left\|F\left(\bx_{0}+h\right) - F\left(\bx_{0}\right)-E h\right\|_{Y}}{\|h\|_{X}}=0
+$$
+が成り立つことをいう。このとき, $E$ は作用素 $F$ の $\bx_0$ におけるFréchet微分といい, $E=DF(\bx_0)$ とかく。　もしも作用素 $F:X\rightarrow Y$ がすべての $\bx\in X$ に対してFréchet微分可能ならば, $F$ は $X$ において $C^1$-Fréchet微分可能という。
+\end{df}
+
+\subsection{許容重み}
+
+\begin{df}点列 $w = (w_k)_{k \in \mathbb{Z}}$ について、
+\begin{align*}
+    w_k > 0 \quad (\forall k \in \mathbb{Z}) \\
+    w_{n+k} \leq w_n w_k \quad ( \forall n,k \in \mathbb{Z})
+\end{align*}
+が成立するとき、許容重みであるという。
+\end{df}
+
+\begin{example}
+$s>0, \nu \leq 1$ に対して、
+$$
+    w_k = (1 + |k|)^s \nu^{|k|} , \quad k \in \mathbb{Z}
+$$
+と定義される $w_k$ は許容重みである。この許容重みであるような点列 $w_k$ に対して、次のような重み付き $\ell^1$ 空間が定義できる。
+\footnotesize
+\begin{align*}
+     \ell^1_w := \left\{ a = (a_k)_{k \in \mathbb{Z}}: a_k \in \mathbb{C}, \| a \|_w := \sum_{k \in \mathbb{Z} }|a_k | w_k < \infty \right\}.
+\end{align*}
+\end{example}
+\normalsize
+
+\subsection{Newton-Kantrovich 型定理}
+\begin{thm}
+$X$, $Y$ をBanach空間、$\mathcal{L}(X,Y)$ を $X$ から $Y$ への有界線形作用素全体の集合とする。有界線形作用素 $A^\dagger \in \mathcal{L}(X,Y)$, $A \in \mathcal{L} (Y,X)$ を考え、作用素 $F: X \rightarrow Y$ が $C^1$-Fréchet微分可能とする。また $A$ が単射で $AF: X \rightarrow X$ とする。いま、$\bar \bx \in X$に対して、正定数 $Y_0$, $Z_0$, $Z_1$, および非減少関数 $Z_2(r)$ ($r>0$) が存在して、次の不等式
+    \begin{align*}
+    \|AF(\bar \bx)\|_X &\leq Y_0 \\
+    \|I - A A^\dagger\|_{\mathcal{L}(X)} &\leq Z_0 \\
+    \|A (DF(\bar \bx) - A^\dagger)\|_{\mathcal{L}(X)}&\leq Z_1 \\
+    \|A (DF(b) - DF(\bar \bx))\|_{\mathcal{L}(X)} &\leq Z_2 (r)r, \\
+    \forall b &\in \overline{B(\bar \bx, r)}
+    \end{align*}
+をみたすとする。このとき、radii polynomialを以下で定義する。
+$$
+    p(r) := Z_2 (r)r^2 - (1 - Z_1 - Z_0)r + Y_0.
+$$
+
+これに対し、$p(r_0)<0$ となる $r_0 > 0$ が存在すれば、$F(\bx) = 0$ をみたす解 $\tilde \bx$ が $b \in \overline{B(\bar \bx, r)}$ 内に一意存在する。
+\end{thm}
+
+Newton-Kantorovich型定理を利用する数値検証の際には、$DF(\bar \bx)$ を $F$ の $\bar \bx$ におけるFréchet微分、$A^\dagger$ を $DF(\bar \bx)$ の近似、$A$ を $A^\dagger$ の近似左逆作用素とする。($AA^\dagger \approx I$ とするのが一般的である。)
+
+\subsection{Newton法}
+まず、1次元のNewton法を考える。$f: \R \to \R, x \in \R$ として
+$$
+f(x) = 0
+$$
+となる $x$ を求める。このとき、 $x$ の付近に適当な値 $x_0$ をとり、次の漸化式によって $x$ に収束する数列を得ることができる。
+$$
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+$$
+
+本研究では、多次元のNewton法を用いる。 $F(x_n) \in \R^{2N} \to \R^{2N}$ とし、 $F'$ の代わりにヤコビ行列 $DF$ を用いて次で表される。
+\begin{align*}
+x_{n+1} = x_n - DF(x_n)^{-1}F(x_n), \\
+DF(x) = 
+\begin{bmatrix}
+\frac{\partial F_1}{\partial x_1} & \cdots & \frac{\partial F_1}{\partial x_{2N}} \\
+\vdots & & \vdots \\
+\frac{\partial F_{2N}}{\partial x_1}  & \cdots & \frac{\partial F_{2N}}{\partial x_{2N}} 
+\end{bmatrix}
+\end{align*}
+
+\subsection{Krawczyk (クラフチック) 法}
+\begin{thm}
+$X \in \mathbb{IR}^N$ をベクトル区間(候補集合ともいう)、 $c = \opmid(X), R \simeq Df(c)^{-1} = J(c)^{-1}, E$ を単位行列とし、
+$$
+    K(X) = c - Rf(c) + (E - RDf(X))(X-c)
+$$
+としたとき、 $K(X) \subset \opint(X) (\opint(X) : X$ の内部) ならば $X$ に $f(x) = 0$ の解が唯一存在する。
+\end{thm}
+
+\subsection{Banach空間 $X$ の設定}
+
+本研究で用いるBanach空間$X$を次のように定める。はじめに重み付き $\ell^1$ 空間を重み $w_k=\nu^{|k|}$ (今は$\nu=1.1$) として次のように定める。
+\footnotesize
+\begin{align*}
+\ell^1_\nu := &\left\{ a = (a_k)_{k \in \mathbb{Z}}: a_k \in \mathbb{C}, \| a \|_w := \sum_{k \in \mathbb{Z} }|a_k | \nu^{|k|} < \infty \right\}.
+\end{align*}
+\normalsize
+そして、関数空間 $X$ は
+$$
+    X := \mathbb{C} \times \ell^1_{\nu}, \quad \bx = (\omega, a), \quad \omega \in \mathbb{C}, \quad a \in \ell^1_\nu
+$$
+と定め、そのノルムを
+$$
+    \| \bx \|_X := \max\{ |\omega|, \| a \|_w \}
+$$
+として定義する。このとき、$X$ はBanach空間となる。
+
+
+
+%\end{document}
